@@ -1,0 +1,551 @@
+.cf-bottom-line {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(13, 14, 16, .1);
+}
+
+.cf-faq-content {
+  color: #c5cfd9;
+  margin-bottom: 0;
+  padding-bottom: 30px;
+  font-family: Montserrat, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.cf-faq-answer-wrap {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  padding-right: 10%;
+}
+
+.cf-faq-questions {
+  width: 90%;
+  color: #c5cfd9;
+  font-family: Montserrat, sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 34px;
+}
+
+.cf-faq-question-wrapper-2 {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.cf-faq-question-container-2 {
+  cursor: pointer;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.cf-faq-question-container-2.first {
+  border-top: 1px solid rgba(13, 14, 16, .1);
+}
+
+.cf-faq-card {
+  width: 100%;
+  max-width: 730px;
+  color: #181818;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.cf-faqs-wrapper {
+  width: 60%;
+  padding-top: 0;
+}
+
+.cf-call-arrow-down {
+  margin-bottom: -18px;
+  margin-left: -18px;
+  position: absolute;
+  top: auto;
+  bottom: 0%;
+  left: 0%;
+  right: auto;
+}
+
+.cf-call-arrow-down.gradient {
+  margin-bottom: -22px;
+  margin-left: -22px;
+}
+
+.cf-call-arrow-contain {
+  width: 32px;
+  height: 32px;
+  background-color: #0d0e10;
+  border-top-right-radius: 16px;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-left: 12px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.cf-call-arrow-contain.cf-gradient {
+  width: 40px;
+  height: 40px;
+  background-color: #b16cea;
+  background-image: linear-gradient(135deg, #b16cea 20%, #ff5e69 60%, #ff8a56 80%, #ffa84b);
+  padding-bottom: 6px;
+  padding-left: 6px;
+}
+
+.cf-gradient-span {
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(to right, #b16cea 20%, #ff5e69 60%, #ff8a56 80%, #ffa84b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-family: Montserrat, sans-serif;
+}
+
+.cf-call-button {
+  color: #0d0e10;
+  letter-spacing: -.32px;
+  align-items: center;
+  padding-left: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  display: flex;
+  overflow: visible;
+}
+
+.cf-call-button._24px-bold {
+  color: #b16cea;
+  letter-spacing: normal;
+  padding-left: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 100%;
+}
+
+.cf-faq-bold-text {
+  margin-bottom: 32px;
+  font-family: Montserrat, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+.cf-faq-paragraph {
+  max-width: 640px;
+  color: rgba(13, 14, 16, .75);
+  letter-spacing: -.32px;
+  margin-top: 24px;
+  margin-bottom: 32px;
+  font-family: Montserrat, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 156%;
+}
+
+.cf-h2-heading {
+  color: #000;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 110%;
+}
+
+.cf-h2-heading.left {
+  color: #c5cfd9;
+  letter-spacing: -1px;
+  margin-top: 0;
+  font-family: Montserrat, sans-serif;
+}
+
+.cf-faqs-text-wrap {
+  width: 35%;
+  max-width: 383px;
+}
+
+.cf-faq-main-wrapper {
+  width: 90%;
+  max-width: 1140px;
+  flex-direction: column;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-columns: 1fr;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 60px;
+  padding-bottom: 160px;
+  display: flex;
+}
+
+.cf-faq-main-wrapper.horizontal {
+  flex-direction: row;
+  padding-top: 100px;
+}
+
+.cf-faq-section-1 {
+  position: relative;
+}
+.cf-secondary-button {
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0;
+  background-color: #000;
+  border-radius: 12px;
+  padding: 20px 40px;
+  font-family: Montserrat, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  transition: background-color .23s;
+}
+
+.cf-secondary-button:hover {
+  color: #fff;
+  background-color: #b16cea;
+}
+
+.cf-secondary-button.pricing-button {
+  color: #fff;
+  background-color: #000;
+  margin-top: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: Montserrat, sans-serif;
+}
+
+.cf-secondary-button.pricing-button:hover {
+  background-image: linear-gradient(to right, #b16cea, #ff5e69 46%, #ffa84b);
+}
+
+.cf-pricing-plan-content-text {
+  letter-spacing: .5px;
+  font-family: Inter, sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.cf-pricing-plan-tick-icon {
+  margin-top: 2px;
+  margin-right: 16px;
+}
+
+.cf-pricing-plan-content-item {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.cf-pricing-plan-content-wrapper {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  display: flex;
+}
+
+.cf-pricing-plan-small-text {
+  letter-spacing: 1px;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 100%;
+}
+
+.cf-pricing-plan-price {
+  letter-spacing: 0;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(to right, #b16cea, #ff5e69 38%, #ff8a56 73%, #ffa84b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  margin-bottom: 48px;
+  padding-bottom: 0;
+  font-family: Montserrat, sans-serif;
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 120%;
+}
+
+.cf-pricing-plan-note-text {
+  letter-spacing: .3px;
+  margin-bottom: 32px;
+  font-family: Montserrat, sans-serif;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.cf-pricing-plan-text {
+  margin-bottom: 16px;
+  font-family: Montserrat, sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 120%;
+}
+
+.cf-pricing-box-plan-wrapper {
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  display: flex;
+}
+
+.cf-pricing-box-plan-wrapper.white-border {
+  border-bottom-color: rgba(255, 255, 255, .2);
+}
+
+.cf-pricing-box {
+  width: 31%;
+  min-height: 640px;
+  border: 1px solid #bababa;
+  border-radius: 16px;
+  flex-direction: column;
+  align-items: stretch;
+  margin-left: 1%;
+  margin-right: 1%;
+  padding: 40px;
+  display: flex;
+}
+
+.cf-pricing-box.pricing-1-box {
+  background-color: #151b22;
+}
+
+.cf-pricing-box.green-pricing-box {
+  color: #fff;
+  background-color: #1d1d1d;
+  border-style: none;
+}
+
+.cf-primary-button {
+  color: #007e60;
+  letter-spacing: .3px;
+  background-color: #f0f9f5;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+  font-family: Montserrat, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  transition: background-color .34s;
+  display: flex;
+}
+
+.cf-primary-button:hover {
+  color: #f0f9f5;
+  background-color: #1d4a35;
+}
+
+.cf-primary-button.pricing-button {
+  color: #000;
+  background-color: #fff;
+  margin-top: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.cf-primary-button.pricing-button:hover {
+  color: #fff;
+  background-image: linear-gradient(96deg, #b16cea, #ff5e69 50%, #ffa84b);
+}
+
+.cf-pricing-box-row {
+  justify-content: center;
+  align-items: stretch;
+  margin-bottom: 40px;
+  display: flex;
+}
+
+.cf-pricing-box-wrapper {
+  margin-top: 50px;
+}
+
+.cf-pricing-box-wrapper.pricing-1-box {
+  margin-top: 100px;
+  position: relative;
+  top: 0;
+}
+
+.cf-wrapper-1200px {
+  width: 100%;
+  max-width: 1200px;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cf-toggle-arrow-icon {
+  position: relative;
+  top: -12px;
+  left: 12px;
+}
+
+.cf-toggle-save-text {
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+.cf-toggle-save-container {
+  align-items: center;
+  display: flex;
+  position: absolute;
+  top: auto;
+  bottom: -141%;
+  left: 15%;
+  right: 0%;
+}
+
+.cf-toggle-text {
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-size: 20px;
+  line-height: 120%;
+}
+
+.cf-toggle-dot {
+  width: 28px;
+  height: 28px;
+  background-color: #fff;
+  border-radius: 100%;
+}
+
+.cf-toggle-dot.green-toggle-dot {
+  background-image: linear-gradient(135deg, #b16cea 17%, #ff5e69 55%, #ffa84b);
+}
+
+.cf-toggle-contain {
+  width: 70px;
+  height: 34px;
+  cursor: pointer;
+  background-color: #000;
+  border-radius: 20px;
+  align-items: center;
+  margin-left: 25px;
+  margin-right: 25px;
+  padding: 5px;
+  display: flex;
+}
+
+.cf-toggle-contain.white-toggle {
+  background-color: #fff;
+}
+
+.cf-toggle-row {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+.cf-pricing-toggle-header-wrapper {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.cf-pricing-toggle-header-wrapper.pricing-header-toggle {
+  justify-content: center;
+}
+
+.cf-pricing-hero-para {
+  max-width: 670px;
+  color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Montserrat, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.cf-colourful-text {
+  white-space: normal;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(135deg, #b16cea, #ff5e69 49%, #ff8a56 75%, #ffa84b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  margin-right: 3px;
+  padding-bottom: 0;
+  display: inline-block;
+}
+
+.cf-pricing-hero-heading {
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 32px;
+  font-family: Montserrat, sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 115%;
+}
+
+.cf-white-top-heading {
+  color: #fff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-family: Montserrat, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+.cf-pricing-hero-head-container {
+  max-width: 880px;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.cf-pricing-hero-section {
+  background-color: #000;
+  padding-top: 140px;
+  padding-bottom: 140px;
+  position: relative;
+}
+
+
+@media (max-width:1024px){
+  .cf-pricing-box-row > div {
+    width:calc(50% - 20px);
+    margin: 0 10px 20px
+   }
+   .cf-pricing-box-row{
+    flex-wrap:wrap
+   }
+   
+}
+
+
+@media (max-width:767px){
+  .cf-pricing-box-row > div {
+    width:100%;
+    margin: 0 0 20px
+   }
+
+   .cf-pricing-box-row{
+    padding:  0 20px;
+   }
+   
+}

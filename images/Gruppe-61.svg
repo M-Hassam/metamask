@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="69" height="69" viewBox="0 0 69 69">
+  <defs>
+    <filter id="Ellipse_5">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161" result="color"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur"/>
+      <feComposite operator="in" in="color"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Gruppe_61" data-name="Gruppe 61" transform="translate(-238.5 -3621.5)">
+    <g id="Gruppe_10" data-name="Gruppe 10" transform="translate(-63 2210)">
+      <g data-type="innerShadowGroup">
+        <circle id="Ellipse_5-2" data-name="Ellipse 5" cx="33" cy="33" r="33" transform="translate(303 1413)" fill="#7458e8"/>
+        <g transform="matrix(1, 0, 0, 1, 301.5, 1411.5)" filter="url(#Ellipse_5)">
+          <circle id="Ellipse_5-3" data-name="Ellipse 5" cx="33" cy="33" r="33" transform="translate(1.5 1.5)" fill="#fff"/>
+        </g>
+        <circle id="Ellipse_5-4" data-name="Ellipse 5" cx="33" cy="33" r="33" transform="translate(303 1413)" fill="none" stroke="#a392e6" stroke-width="3"/>
+      </g>
+    </g>
+    <g id="Gruppe_11" data-name="Gruppe 11" transform="matrix(0.998, 0.07, -0.07, 0.998, 257.784, 3568.888)">
+      <path id="Pfad_8" data-name="Pfad 8" d="M15.165,99.3V78.089a.518.518,0,0,1,.518-.518h7a.518.518,0,0,1,.518.518V99.3S15.165,99.59,15.165,99.3Zm1.036-.518h5.964v0ZM8.517,99.821h-7A.518.518,0,0,1,1,99.3V85.5a.518.518,0,0,1,.518-.518h7a.518.518,0,0,1,.518.518V99.3A.518.518,0,0,1,8.517,99.821ZM2.035,98.786H8v0Zm34.813,1.035h-7a.518.518,0,0,1-.518-.518V74.384a.518.518,0,0,1,.518-.518h7a.517.517,0,0,1,.518.518V99.3A.517.517,0,0,1,36.848,99.821Zm-6.481-1.035h5.964v0H30.367Z" transform="translate(1 -2)" fill="#a392e6"/>
+    </g>
+  </g>
+</svg>

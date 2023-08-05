@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="720" height="658" viewBox="0 0 720 658">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.014" y1="0.015" x2="0.979" y2="0.984" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#7458e8"/>
+      <stop offset="0.568" stop-color="#a392e6" stop-opacity="0"/>
+      <stop offset="1" stop-color="#d625f8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.014" y1="0.015" x2="0.979" y2="0.984" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#7458e8" stop-opacity="0"/>
+      <stop offset="0.568" stop-color="#a392e6" stop-opacity="0"/>
+      <stop offset="1" stop-color="#d625f8"/>
+    </linearGradient>
+  </defs>
+  <g id="Fade_bg_pink" data-name="Fade bg pink" transform="translate(-1039 -3613)">
+    <rect id="Rechteck_24" data-name="Rechteck 24" width="720" height="658" rx="22" transform="translate(1039 3613)" opacity="0.533" fill="url(#linear-gradient)"/>
+    <rect id="Rechteck_54" data-name="Rechteck 54" width="720" height="658" rx="22" transform="translate(1039 3613)" opacity="0.533" fill="url(#linear-gradient-2)"/>
+  </g>
+</svg>

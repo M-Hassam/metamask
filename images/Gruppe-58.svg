@@ -1,0 +1,14 @@
+<svg id="Gruppe_58" data-name="Gruppe 58" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1951.312" height="880.226" viewBox="0 0 1951.312 880.226">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.019" x2="0.288" y2="0.363" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#d625f8"/>
+      <stop offset="1" stop-color="#227ed2" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.981" y1="1" x2="0.655" y2="0.687" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#227ed2"/>
+      <stop offset="1" stop-color="#227ed2" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect id="_KOE0728" width="1951.312" height="880.226" rx="25" transform="translate(0)" fill="url(#linear-gradient)"/>
+  <rect id="_KOE0728-2" data-name="_KOE0728" width="1949.879" height="880.226" rx="25" transform="translate(0)" fill="url(#linear-gradient-2)"/>
+</svg>
