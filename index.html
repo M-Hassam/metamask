@@ -149,13 +149,19 @@
 
 /* Styles for the button */
 #openModalButton {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
+  padding: 17px 20px;
+    background-color: rgb(37, 99, 235);
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    transition: 0.3s all;
+}
+
+#openModalButton:hover{
+  background: #7458E8;
 }
 /* #disconnect-wallet-connect-btn{
   display: none;
@@ -176,6 +182,14 @@
       transform: translateX(-50%);  
     }
   }
+
+
+#w3m-modal{
+    overflow: scroll;
+    align-items: flex-start;
+    padding: 100px 0 50px;
+}
+  
   </style>
   <!-- <style>
     .connectwallet-modal .modal-dialog {
@@ -387,7 +401,7 @@
                   <!-- <button id="wallet_btn">Connect</button> -->
                   <button id="disconnect-btn1" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">Disconnect Wallet</button>
                   <button id="switch-btn1" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">Switch Network</button>
-                  <button id="openModalButton" class="rounded-xs w-full mx-auto p-10 btn-text-color">Connect</button>
+                  <button id="openModalButton" class="rounded-xs w-full mx-auto p-10 btn-text-color btn">Connect Wallet</button>
                 </div>
                 <!-- <div id="w-node-cd49f020-3201-373d-67b5-0238b163a288-052a211e " class="mx-auto connect-wallet-btn" >
                   <button id="conectBtn">Connect</button>
