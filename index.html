@@ -50,7 +50,7 @@
 
   <script src="js/config.js"></script>
   <script src="js/bignumber.js"></script>
-  <!-- <script src="js/web3.js"></script> -->
+  <script src="js/web3.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
   <script src="js/tab.js"></script>
@@ -65,7 +65,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 	}
-  .modal {
+  /* .modal {
     display: none;
     position: fixed;
     top: 0;
@@ -95,7 +95,7 @@
   }
   .wallet_card {
     cursor: pointer;
-  }
+  } */
 </style>
 <style>
   .items-holder {
@@ -110,7 +110,7 @@
     }
   }
   </style>
-  <style>
+  <!-- <style>
     .connectwallet-modal .modal-dialog {
        min-height: 200px;
    }
@@ -131,6 +131,9 @@
        height: 40px;
        width: 40px;
    }
+   .web3modal-modal-card{
+    z-index: 9999;
+   } -->
  </style>
 </head>
 <body>
@@ -312,16 +315,16 @@
                 
               </div>
               <div class="mt-2">
-                <div id="w-node-cd49f020-3201-373d-67b5-0238b163a288-052a211e " class="mx-auto connect-wallet-btn" style="display:none;">
+                <div id="w-node-cd49f020-3201-373d-67b5-0238b163a288-052a211e " class="mx-auto connect-wallet-btn">
                   <button id="connect-btn1" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">Connect Wallet</button>
-                  <button id="wallet_btn">Connect</button>
+                  <!-- <button id="wallet_btn">Connect</button> -->
                   
                   <button id="disconnect-btn1" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">Disconnect Wallet</button>
                   <button id="switch-btn1" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">Switch Network</button>
                 </div>
-                <div id="w-node-cd49f020-3201-373d-67b5-0238b163a288-052a211e " class="mx-auto connect-wallet-btn" >
+                <!-- <div id="w-node-cd49f020-3201-373d-67b5-0238b163a288-052a211e " class="mx-auto connect-wallet-btn" >
                   <button id="conectBtn">Connect</button>
-                </div>
+                </div> -->
                 <div  class="mt-2 text-center mx-auto connectedAccountDiv" style="position: relative;" id="referral-info-label2" style="display: none;">      
                   <span>Connected Account:</span>            
                   <input id="connectedAccount" type="text" class="form-control p-5 w-full rounded-xs" style="padding-right: 58px;" value="" readonly/>
@@ -681,6 +684,18 @@ This makes the SURF token lucrative for everyone. Whether you are an investor, a
                       src="https://cataboltswap.io/assets/images/Metamask-icon.png"
                       alt=""
                       class="wallet_img"
+                    />
+                  </div>
+
+                  <div
+                    class="wallet_card connect-metamask"
+                    onclick="connectMetamask_before();"
+                  >
+                    <span class="wallet_name">WalletConnect</span>
+                    <img
+                      src="./images/icon/walletconnect.png"
+                      alt=""
+                    
                     />
                   </div>
              
@@ -1467,8 +1482,7 @@ Partner & Advisor 12%</div>
 <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"type="application/javascript"></script>
 <script type="text/javascript" src="https://unpkg.com/web3modal/dist/index.js"></script>
 <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider/dist/umd/index.min.js"></script>
-<!-- <script src="https://users.nsightsdefitrader.io/assets/admin/javascript/connection.js"></script> -->
-<script src="js/connection.js"></script>
+<!-- <script src="js/connection.js"></script> -->
 
 <script type="text/javascript">
   function connectMetamask_before(){
