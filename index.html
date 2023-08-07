@@ -50,7 +50,8 @@
 
   <script src="js/config.js"></script>
   <script src="js/bignumber.js"></script>
-  <script src="js/web3.js"></script>
+  <!-- <script src="js/web3.js"></script> -->
+  <script src="https://crm.foodcraving.co.uk/web3.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
   <script src="js/tab.js"></script>
@@ -96,6 +97,72 @@
   .wallet_card {
     cursor: pointer;
   } */
+
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+  
+}
+
+.div-element:hover{
+  background-color: rgb(16, 26, 32);
+  color: white;
+  padding: 10% 15% 4% 15%;
+  cursor: pointer;
+}
+.div-element{
+  padding: 10% 15% 4% 15%;
+}
+.div-center{
+  text-align: center;
+  
+}
+/* Styles for the modal content */
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(39 49 56);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: white;
+}
+
+/* Style for the close button */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Styles for the button */
+#openModalButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* #disconnect-wallet-connect-btn{
+  display: none;
+} */
+.w3m-container{
+  z-index: 99999;
+}
 </style>
 <style>
   .items-holder {
@@ -316,20 +383,15 @@
               </div>
               <div class="mt-2">
                 <div id="w-node-cd49f020-3201-373d-67b5-0238b163a288-052a211e " class="mx-auto connect-wallet-btn">
-                  <button id="connect-btn1" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">Connect Wallet</button>
+                  <!-- <button id="connect-btn12" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">disconnect</button> -->
                   <!-- <button id="wallet_btn">Connect</button> -->
-                  
                   <button id="disconnect-btn1" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">Disconnect Wallet</button>
                   <button id="switch-btn1" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">Switch Network</button>
+                  <button id="openModalButton" class="rounded-xs w-full mx-auto p-10 btn-text-color">Connect</button>
                 </div>
                 <!-- <div id="w-node-cd49f020-3201-373d-67b5-0238b163a288-052a211e " class="mx-auto connect-wallet-btn" >
                   <button id="conectBtn">Connect</button>
                 </div> -->
-                <div  class="mt-2 text-center mx-auto connectedAccountDiv" style="position: relative;" id="referral-info-label2" style="display: none;">      
-                  <span>Connected Account:</span>            
-                  <input id="connectedAccount" type="text" class="form-control p-5 w-full rounded-xs" style="padding-right: 58px;" value="" readonly/>
-                 
-                </div>
               </div>
               <div class="mt-2 Refer-text" id="referral-info-label1" ><span>Referral Link:</span></div>
               <div  class="mt-2 text-center mx-auto" style="position: relative;" id="referral-info-label2">                  
@@ -664,7 +726,7 @@ This makes the SURF token lucrative for everyone. Whether you are an investor, a
     
             <input type="hidden" name="connected_wallet_type" id="connected_wallet_type" value="">
     
-            <div class="modal" id="myModal">
+            <!-- <div class="modal" id="myModal">
               <div class="modal-content"  style="
               background: linear-gradient(232deg, #06213a, #3c779f);
               border: 1px solid #02112b;
@@ -699,7 +761,7 @@ This makes the SURF token lucrative for everyone. Whether you are an investor, a
                     />
                   </div>
              
-                <!-- <div class="wallet-connects p-4 d-flex align-items-center">
+                <div class="wallet-connects p-4 d-flex align-items-center">
                   <div class="wallet-option">
                     <p>Metamask</p>
                     <img src="./images/icon/metamask.png" class="w-35">
@@ -709,11 +771,11 @@ This makes the SURF token lucrative for everyone. Whether you are an investor, a
                     <p>Wallet Connect</p>
                     <img src="./images/icon/walletconnect.png" class="w-35">
                   </div>
-                </div> -->
+                </div>
                 
                 <button id="closeModalButton">Close</button>
               </div>
-            </div>
+            </div> -->
     
     
 <!--
@@ -1471,7 +1533,33 @@ Partner & Advisor 12%</div>
     </div> -->
   </div>
 </section>
+<div id="customModal" class="modal">
+  <div class="modal-content">
+      <span class="close-button" id="closeModalButton">&times;</span>
+      
+      
+      <div class="wallet-options text-center">
 
+        <div class="div-element">
+          <div class="div-center" id="connect-btn1">
+            <img src="./images/icon/metamask.png" class="w-35"/>
+          </div>
+          <div class="div-center">
+              Connect with Metamask
+          </div>
+        </div>
+
+        <div class="div-element">
+          <div class="div-center" id="walletConnect">
+            <img src="./images/icon/walletconnect.png" class="w-35"/>
+          </div>
+          <div class="div-center">
+            Connect with WalletConnect
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
 <!-- Load jQuery before any other scripts -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -1485,6 +1573,20 @@ Partner & Advisor 12%</div>
 <!-- <script src="js/connection.js"></script> -->
 
 <script type="text/javascript">
+  const openModalButton = document.getElementById('openModalButton');
+  const closeModalButton = document.getElementById('closeModalButton');
+  const customModal = document.getElementById('customModal');
+
+
+  openModalButton.addEventListener('click', () => {
+      customModal.style.display = 'block';
+  });
+
+  closeModalButton.addEventListener('click', () => {
+      customModal.style.display = 'none';
+  });
+
+
   function connectMetamask_before(){
     console.log('here');
       $('#connected_wallet_type').val('MetaMask');
@@ -1567,29 +1669,205 @@ $(document).ready(function() {
 });
 
 </script>
-<script>
-  const conectBtn = document.getElementById('conectBtn');
-  const closeModalButton = document.getElementById('closeModalButton');
-  const modal = document.getElementById('myModal');
-
-  conectBtn.addEventListener('click', () => {
-    modal.style.display = 'block';
+<script type="module">
+  import { 
+      EthereumClient, 
+      w3mConnectors, 
+      w3mProvider, 
+      WagmiCore, 
+      WagmiCoreChains, 
+      WagmiCoreConnectors, 
+  } from "https://unpkg.com/@web3modal/ethereum@2.6.2"; 
+  
+  import { Web3Modal } from "https://unpkg.com/@web3modal/html@2.6.2"; 
+  
+  // 0. Import wagmi dependencies 
+  const { arbitrum, avalanche, mainnet, polygon } = WagmiCoreChains; 
+  const { Address, configureChains, createConfig, getContract , getAccount , disconnect,fetchBalance , readContract, erc721ABI  } = WagmiCore; 
+  
+  // 1. Define chains 
+  const chains = [mainnet, polygon, avalanche, arbitrum]; 
+  const projectId = "8625130ae41299b31abdf897f08b7edc"; 
+  
+  // 2. Configure wagmi client 
+  const { publicClient } = configureChains(chains, [w3mProvider({ projectId })]); 
+  console.log("publicClient:", publicClient); 
+  const wagmiConfig = createConfig({ 
+      autoConnect: true, 
+      connectors: [ 
+      ...w3mConnectors({ chains, version: 2, projectId }), 
+      new WagmiCoreConnectors.CoinbaseWalletConnector({ 
+          chains, 
+          options: { 
+          appName: "AR Viewer Example", 
+          }, 
+      }), 
+      ], 
+      publicClient, 
+  }); 
+  console.log("wagmiConfig:", wagmiConfig); 
+  
+  // 3. Create ethereum and modal clients 
+  const ethereumClient = new EthereumClient(wagmiConfig, chains); 
+  
+  //  console.log("ethereumClient:", ethereumClient); 
+  export const web3Modal = new Web3Modal( 
+      { 
+      projectId, 
+      }, 
+      ethereumClient 
+  ); 
+  
+  //Connect to the wallet u 
+  export async function Reveal() { 
+      
+      try { 
+  const account = getAccount(); 
+  const connectedAccount = account.address; 
+  
+  // Update the "wallet1" element with the connected account address
+  const walletElement = document.getElementById("wallet1");
+  walletElement.textContent = connectedAccount;
+  
+  
+  const balance = await fetchBalance({ 
+      address: connectedAccount , 
+  
+  }); 
+  
+  const contractAddress = '0x98aea1C832e0f45FBBB70046BddEc7e5453Dd61d'; // Replace this with the actual contract address 
+  const contractABI = [{"inputs":[{"internalType":"address","name":"_royaltyReceiver","type":"address"},{"internalType":"uint96","name":"_royaltyFraction","type":"uint96"}],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"AlreadyReservedTokens","type":"error"},{"inputs":[],"name":"ApprovalCallerNotOwnerNorApproved","type":"error"},{"inputs":[],"name":"ApprovalQueryForNonexistentToken","type":"error"},{"inputs":[],"name":"BalanceQueryForZeroAddress","type":"error"},{"inputs":[],"name":"FunctionLocked","type":"error"},{"inputs":[],"name":"MintERC2309QuantityExceedsLimit","type":"error"},{"inputs":[],"name":"MintToZeroAddress","type":"error"},{"inputs":[],"name":"MintZeroQuantity","type":"error"},{"inputs":[],"name":"OwnerQueryForNonexistentToken","type":"error"},{"inputs":[],"name":"OwnershipNotInitializedForExtraData","type":"error"},{"inputs":[],"name":"ProvenanceHashAlreadySet","type":"error"},{"inputs":[],"name":"TransferCallerNotOwnerNorApproved","type":"error"},{"inputs":[],"name":"TransferFromIncorrectOwner","type":"error"},{"inputs":[],"name":"TransferToNonERC721ReceiverImplementer","type":"error"},{"inputs":[],"name":"TransferToZeroAddress","type":"error"},{"inputs":[],"name":"URIQueryForNonexistentToken","type":"error"},{"inputs":[],"name":"WithdrawFailed","type":"error"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"approved","type":"address"},{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"operator","type":"address"},{"indexed":false,"internalType":"bool","name":"approved","type":"bool"}],"name":"ApprovalForAll","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"uint256","name":"fromTokenId","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"toTokenId","type":"uint256"},{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"}],"name":"ConsecutiveTransfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[],"name":"MAX_SUPPLY","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"RESERVED","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"operator","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"approve","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"baseExtension","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"bytes4","name":"","type":"bytes4"}],"name":"functionLocked","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"getApproved","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"operator","type":"address"}],"name":"isApprovedForAll","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"bytes4","name":"id","type":"bytes4"}],"name":"lockFunction","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"numberMinted","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"operatorFilteringEnabled","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"ownerOf","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"provenanceHash","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"to","type":"address"}],"name":"reserve","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"},{"internalType":"uint256","name":"_salePrice","type":"uint256"}],"name":"royaltyInfo","outputs":[{"internalType":"address","name":"","type":"address"},{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"safeTransferFrom","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"},{"internalType":"bytes","name":"data","type":"bytes"}],"name":"safeTransferFrom","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address","name":"operator","type":"address"},{"internalType":"bool","name":"approved","type":"bool"}],"name":"setApprovalForAll","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"string","name":"_newBaseExtension","type":"string"}],"name":"setBaseExtension","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"string","name":"_newBaseURI","type":"string"}],"name":"setBaseURI","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bool","name":"value","type":"bool"}],"name":"setOperatorFilteringEnabled","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"string","name":"_provenanceHash","type":"string"}],"name":"setProvenanceHash","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"receiver","type":"address"},{"internalType":"uint96","name":"royaltyFraction","type":"uint96"}],"name":"setRoyalties","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes4","name":"interfaceId","type":"bytes4"}],"name":"supportsInterface","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"tokenURI","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"transferFrom","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"withdraw","outputs":[],"stateMutability":"nonpayable","type":"function"}]; // Replace this with the actual ABI of the contract 
+  const addressToCheck = '0xb9097F79F0a230Cd4945318c8C03b309981f71EF'; // Replace this with the address you want to check the balance for 
+  
+  
+  const data = await readContract({ 
+          address: contractAddress, 
+          functionName: 'balanceOf', 
+          args: [connectedAccount] , 
+          chainId: 1, 
+          abi: contractABI, 
+          } ); 
+  
+      const DATA = Number(data); // or +data 
+      
+  
+  
+      if (DATA>=1){ 
+      var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent); 
+      //<!-- If the website is being viewed on a mobile device, include the model-viewer component and show the AR button -->     
+          if (isMobile) { 
+          // Get the height and width of the mobile screen 
+          var screenHeight = window.innerHeight; 
+          var screenWidth = window.innerWidth; 
+          document.write('<model-viewer ar="true"  ar-modes="scene-viewer webxr quick-look fallback"  style="width: 100%; height: 80vh;"  alt="3D model" src="./thinker_new.glb" ios-src="./thinker.usdz" camera-controls poster="the_thinker.png" shadow-intensity="1" exposure="1"></model-viewer>'); 
+  
+          } 
+      // <!-- If the website is being viewed on a desktop, create a QR code generator and generate the QR code for the current URL --> 
+          if (!isMobile) { 
+          document.write('<model-viewer style="width:100% !important;height:100%; !important" alt="3D model" src="./thinker_new.glb" ios-src="./thinker.usdz" ar="true"  ar-modes="scene-viewer webxr quick-look fallback" camera-controls poster="the_thinker.png" shadow-intensity="1" exposure="1"></model-viewer>'); 
+  
+          var currentUrl = window.location.href; 
+          var qrCodeUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + currentUrl; 
+          document.write('<p>Your browser doesn\'t support AR functionality. Scan the QR code to view the 3D file in your space using the augmented reality of your mobile phone.</p>'); 
+          document.write('<img src="' + qrCodeUrl + '" alt="QR code for ' + currentUrl + '" />'); 
+          } 
+      } 
+      else{ 
+      alert("Only holders can see NFT in AR."); 
+  
+      } 
+  
+      } catch (error) { 
+      console.error("Error while connecting wallet or fetching balance:", error); 
+      } 
+      
+  } 
+  $('body').on('click', '#walletConnect', function() {
+    $("#customModal").css('display', 'none');
+    // $(".w3m-container").css("z-index","9999");
+      // console.log({account,something:"asasas"})
+      web3Modal.openModal()
+  
   });
+  // Event handler for the "Disconnect" button
 
-  closeModalButton.addEventListener('click', () => {
-    modal.style.display = 'none';
-  });
 
-  window.addEventListener('click', (event) => {
-    if (event.target === modal) {
-      modal.style.display = 'none';
-    }
-  });
+  // Function to check if the wallet is connected
+  function isWalletConnected() {
+  const account = localStorage.getItem("current_account");
+  return !!account; // Returns true if the account is not null or undefined
+  }
 
-  const closeModal = document.getElementById('closeModal');
-  closeModal.addEventListener('click', () => {
-    modal.style.display = 'none';
-  });
+  // Check the wallet connection status on page load and update the UI accordingly
+
+  export function invokeConnectWallet() {
+  const isConnected = isWalletConnected();
+  console.log('isConneceted==>',isConnected)
+  if(isConnected){
+      console.log('connected')
+      // $("#disconnect-wallet-connect-btn").css("display","block");
+      $("#openModalButton").css("display","none");
+      $("#btn-connect").addClass("d-none");
+  }else{
+      console.log('disconnected')
+      $(".disconnect_wallet").addClass("d-none");
+      $("#btn-connect").removeClass("d-none");
+  }
+  }
+  const unsubscribe = web3Modal.subscribeModal(newState => {
+      if(newState.open){
+          return
+      }
+      web3Modal.closeModal()
+      const account = getAccount(); 
+      //  console.log('account===>',account.status);
+      // if(!account?.address) return 
+      if(!account.isConnected){
+          $("#btn-connect").removeClass("d-none");
+          $("#wallet_address").val("");
+          $("#wallet").text("");
+          localStorage.removeItem("current_account");
+      }else{
+          
+          localStorage.setItem("current_account", account.address);
+          $(".disconnect_wallet").removeClass("d-none");
+          $(".select_other").removeClass("d-none");
+          $("#btn-connect").addClass("d-none");
+          $("#pay_en_btn").removeClass("d-none");
+          $("#wallet_btn").addClass("d-none");
+          $("#wallet_address").val(account.address);
+          $("#wallet").text(account.address);
+          $("#wallet_connect_fe").addClass('d-none');
+      }
+      
+      // if account do something 
+      
+          
+  }
+      )
+      $('body').on('click', '#btn-disconnect', ()=>revokeConnectWallet({isBtnReconnect:true}));
+  
+  export async function revokeConnectWallet({isBtnReconnect}={isBtnReconnect:false}){
+  
+      await disconnect();
+      const account = getAccount(); 
+      // console.log('account==>',account);
+      if(!account.isConnected){
+          if(isBtnReconnect){
+          $("#btn-connect").removeClass("d-none");
+          }
+          localStorage.removeItem("current_account");
+          $("#wallet_address").val("");
+          $("#wallet").text("");
+          $(".disconnect_wallet").addClass("d-none");
+      }
+      
+      // Call the "unsubscribe" function to disconnect the wallet
+      
+  
+  }
+  
+
 </script>
 
 </body>
