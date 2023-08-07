@@ -120,41 +120,57 @@ div#connect-btn1 img {
   
 }
 
+.div-element{
+  padding: 30px 20px;
+  border-bottom: 2px solid rgb(72 79 85);
+}
+
+.wallet-options .div-element:last-child{
+border: 0;
+}
+
+
 .div-element:hover{
   background-color: rgb(16, 26, 32);
   color: white;
-  padding: 10% 15% 4% 15%;
   cursor: pointer;
 }
-.div-element{
-  padding: 10% 15% 4% 15%;
-}
+
 .div-center{
   text-align: center;
-  
+
+}
+
+.div-element .div-center{
+  color: #757272;
+}
+
+.div-element h4{
+  color: #fff;
 }
 /* Styles for the modal content */
 .modal-content {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 40%;
+    width: 90%;
     transform: translate(-50%, -50%);
     background-color: rgb(39 49 56);
-    padding: 20px;
+    padding: 20px 32px ;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     text-align: center;
     color: white;
     border: 2px solid rgb(72 79 85);
+    max-width: 650px;
 }
 
 /* Style for the close button */
 .close-button {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
+    top: 2px;
+    right: 8px;
+    font-size: 31px;
     cursor: pointer;
 }
 
@@ -182,6 +198,12 @@ div#connect-btn1 img {
 }
 #connected-wallet-btn{
   display: none;
+}
+
+@media (max-width:767px){
+  .div-element img{
+    max-width:57px !important
+  }
 }
 </style>
 <style>
@@ -407,7 +429,7 @@ div#connect-btn1 img {
                   <!-- <button id="wallet_btn">Connect</button> -->
                   <button id="disconnect-btn1" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">Disconnect Wallet</button>
                   <button id="switch-btn1" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">Switch Network</button>
-                  <button id="openModalButton" class="rounded-xs w-full mx-auto p-10 btn-text-color">Connect</button>
+                  <button id="openModalButton" class="rounded-xs w-full mx-auto p-10 btn-text-color">Connect Wallet</button>
                     <button id="connected-wallet-btn" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">Connected</button>
                 </div>
                 <!-- <div id="w-node-cd49f020-3201-373d-67b5-0238b163a288-052a211e " class="mx-auto connect-wallet-btn" >
@@ -1569,7 +1591,7 @@ Partner & Advisor 12%</div>
               <h4>MetaMask</h4>
           </div>
           <div class="div-center">
-              Connect with Metamask
+              Connect to you MetaMask Wallet
           </div>
         </div>
 
@@ -1581,7 +1603,7 @@ Partner & Advisor 12%</div>
               <h4>WalletConnect</h4>
           </div>
           <div class="div-center">
-            Connect with WalletConnect
+           Scan with WalletConnect to Connect
           </div>
         </div>
       </div>
