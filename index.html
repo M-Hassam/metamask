@@ -163,6 +163,9 @@
 .w3m-container{
   z-index: 99999;
 }
+#connected-wallet-btn{
+  display: none;
+}
 </style>
 <style>
   .items-holder {
@@ -383,11 +386,12 @@
               </div>
               <div class="mt-2">
                 <div id="w-node-cd49f020-3201-373d-67b5-0238b163a288-052a211e " class="mx-auto connect-wallet-btn">
-                  <!-- <button id="connect-btn12" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">disconnect</button> -->
+                
                   <!-- <button id="wallet_btn">Connect</button> -->
                   <button id="disconnect-btn1" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">Disconnect Wallet</button>
                   <button id="switch-btn1" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">Switch Network</button>
                   <button id="openModalButton" class="rounded-xs w-full mx-auto p-10 btn-text-color">Connect</button>
+                    <button id="connected-wallet-btn" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">Connected</button>
                 </div>
                 <!-- <div id="w-node-cd49f020-3201-373d-67b5-0238b163a288-052a211e " class="mx-auto connect-wallet-btn" >
                   <button id="conectBtn">Connect</button>
@@ -1795,6 +1799,10 @@ $(document).ready(function() {
   // Function to check if the wallet is connected
   function isWalletConnected() {
   const account = localStorage.getItem("current_account");
+  $("#connected-wallet-btn").css("display","block");
+  $("#connected-wallet-btn").html(account);
+  $("#connect-btn1").css("display","none");
+  
   return !!account; // Returns true if the account is not null or undefined
   }
 
@@ -1820,7 +1828,10 @@ $(document).ready(function() {
       }
       web3Modal.closeModal()
       const account = getAccount(); 
-      //  console.log('account===>',account.status);
+       console.log('account===>',account.status);
+       $("#connected-wallet-btn").css("display","block");
+      $("#connected-wallet-btn").html("Connected");
+      $("#openModalButton").css("display","none");
       // if(!account?.address) return 
       if(!account.isConnected){
           $("#btn-connect").removeClass("d-none");
