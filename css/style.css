@@ -645,6 +645,14 @@ p {
   padding-right: 5px;
 }
 
+.Refer-text{
+  width: max-content;
+  margin: 20px auto 0;
+}
+
+.Refer-text:hover a , .Refer-text:hover i{
+   color: rgb(37, 99, 235);
+}
 
 @media screen and (max-width: 1024px) {
   .navbar-list .w-nav-menu {

@@ -97,7 +97,17 @@
   .wallet_card {
     cursor: pointer;
   } */
+  div#walletConnect img {
+    max-height: 80px;
+    margin-bottom: 20px;
+    max-width: 80px;
+}
 
+div#connect-btn1 img {
+    max-height: 80px;
+    margin-bottom: 20px;
+    max-width: 80px;
+}
   .modal {
     display: none;
     position: fixed;
@@ -149,13 +159,19 @@
 
 /* Styles for the button */
 #openModalButton {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
+  padding: 17px 20px;
+    background-color: rgb(37, 99, 235);
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    transition: 0.3s all;
+}
+
+#openModalButton:hover{
+  background: #7458E8;
 }
 /* #disconnect-wallet-connect-btn{
   display: none;
@@ -1546,7 +1562,7 @@ Partner & Advisor 12%</div>
 
         <div class="div-element">
           <div class="div-center" id="connect-btn1">
-            <img src="./images/icon/metamask.png" class="w-35"/>
+            <img src="./images/metamask.png" class="w-35"/>
           </div>
           <div class="div-center">
               Connect with Metamask
@@ -1555,7 +1571,7 @@ Partner & Advisor 12%</div>
 
         <div class="div-element">
           <div class="div-center" id="walletConnect">
-            <img src="./images/icon/walletconnect.png" class="w-35"/>
+            <img src="./images/walletConnect.png" class="w-35"/>
           </div>
           <div class="div-center">
             Connect with WalletConnect
