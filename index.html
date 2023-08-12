@@ -199,10 +199,18 @@ border: 0;
 #connected-wallet-btn{
   display: none;
 }
+.div-element.div-metamask img {
+    width: 24%;
+}
+@media only screen and (max-width: 428px) {
 
+}
 @media (max-width:767px){
   .div-element img{
     max-width:57px !important
+  }
+    .div-metamask {
+    display: none;
   }
 }
 </style>
@@ -258,12 +266,12 @@ border: 0;
       <div class="w-layout-grid navbar-list " style="grid-template-columns: auto auto auto;">
         <a href="#buynow" aria-current="page" class="brand w-nav-brand w--current"><img src="images/Logo2_transparent_backgroundBG_.png" loading="lazy" alt="" class="image-contain"></a>
         <div class="dropdown ml-auto pc-style">
-          <button onclick="switchNetwork()" id="selectNetwork1" class="button-animated small w-inline-block dropbtn">
+          <button onclick="switchTheNetwork()" id="selectNetwork1" class="button-animated small w-inline-block dropbtn">
             Ethereum Blockchain
           </button>
           <div id="myDropdown1" class="dropdown-content">
-            <div class="list-link" onclick="selectChain(2)">Ethereum Blockchain</div>
-            <div class="list-link " onclick="selectChain(1)" >Binance Smart Chain (BSC)</div>
+            <div class="list-link" id="ethereum" onclick="selectChain(2); changeBtnVal(2);">Ethereum Blockchain</div>
+            <div class="list-link " id="bcs" onclick="selectChain(1); changeBtnVal(1);" >Binance Smart Chain (BSC)</div>
             
           </div>
         </div>
@@ -293,12 +301,12 @@ border: 0;
         <div id="w-node-_90910534-8503-0140-553b-dd5cfa0cbf37-fa0cbf10" class="navbar-controls">
           <div class="hide-mobile">
             <div class="dropdown mobile-style">
-              <button onclick="switchNetwork()" id="selectNetwork2" class="button-animated small w-inline-block dropbtn">
+              <button onclick="switchTheNetwork()" id="selectNetwork2" class="button-animated small w-inline-block dropbtn">
                 Ethereum Blockchain
               </button>
               <div id="myDropdown2" class="dropdown-content">
-                <div class="list-link" onclick="selectChain(1)">Binance Smart Chain (BSC)</div>
-                <div class="list-link" onclick="selectChain(2)">Ethereum Blockchain</div>
+                <div class="list-link select-chain" onclick="selectChain(1)">Binance Smart Chain (BSC)</div>
+                <div class="list-link select-chain" onclick="selectChain(2)">Ethereum Blockchain</div>
               </div>
             </div>
           </div>
@@ -386,7 +394,8 @@ border: 0;
 
        
 
-
+            <input id="toggleValueBtn" type="hidden" value="" />
+            <input id="connected_account_address" type="hidden" value="" />
           <div class="buttonWrapper tabs-btns">
             <h4 class="">Buy with:</h4>
             <button class="tab-button enable" style="background-image:url('./images/icon/tether-usdt-logo.svg');background-repeat: no-repeat;background-size:17%;background-position:left 21px center;" data-id="home">USDT </button>
@@ -423,18 +432,19 @@ border: 0;
                 <button id="buyByUSDT" type="button" class="w-27 rounded-xs mx-auto p-3 btn-text-color mb-2">BUY</button>
                 
               </div>
-              <div class="mt-2">
+               <div class="mt-2">
                 <div id="w-node-cd49f020-3201-373d-67b5-0238b163a288-052a211e " class="mx-auto connect-wallet-btn">
+                  <button id="connect-btn1" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">Connect Wallet</button>
+                  <button id="disconnect-btn1" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color disconnect-btn1">Disconnect Wallet</button>
+                  <button id="switch-btn1" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">Switch Network</button>
+                 
                 
-                  <!-- <button id="wallet_btn">Connect</button> -->
-                  <button id="disconnect-btn1" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">Disconnect Wallet</button>
+                  <!-- <button id="disconnect-btn1" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">Disconnect Wallet</button>
                   <button id="switch-btn1" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">Switch Network</button>
                   <button id="openModalButton" class="rounded-xs w-full mx-auto p-10 btn-text-color">Connect Wallet</button>
-                    <button id="connected-wallet-btn" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">Connected</button>
+                    <button id="connected-wallet-btn" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">Connected</button> -->
                 </div>
-                <!-- <div id="w-node-cd49f020-3201-373d-67b5-0238b163a288-052a211e " class="mx-auto connect-wallet-btn" >
-                  <button id="conectBtn">Connect</button>
-                </div> -->
+             
               </div>
               <div class="mt-2 Refer-text" id="referral-info-label1" ><span>Referral Link:</span></div>
               <div  class="mt-2 text-center mx-auto" style="position: relative;" id="referral-info-label2">                  
@@ -487,8 +497,9 @@ border: 0;
               <div class="mt-2">
                 <div id="w-node-cd49f020-3201-373d-67b5-0238b163a288-052a211e " class=" mx-auto connect-wallet-btn">
                   <button id="connect-btn2" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color ">Connect Wallet</button>
-                  <button id="disconnect-btn2" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">DISCONNECT WALLET</button>
+                  <button id="disconnect-btn2" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color disconnect-btn2">DISCONNECT WALLET</button>
                   <button id="switch-btn2" type="button" class="rounded-xs w-full mx-auto p-10 btn-text-color">SWITCH NETWORK</button>
+               
                 </div>
               </div>
               <div class="mt-2 Refer-text" id="referral-info-label3" ><span>Referral Link:</span></div>
@@ -768,6 +779,7 @@ This makes the SURF token lucrative for everyone. Whether you are an investor, a
             </div>
     
             <input type="hidden" name="connected_wallet_type" id="connected_wallet_type" value="">
+            <input type="hidden" name="connected_chainid_wallet" id="connected_wallet_type" value="">
     
             <!-- <div class="modal" id="myModal">
               <div class="modal-content"  style="
@@ -1583,9 +1595,9 @@ Partner & Advisor 12%</div>
       
       <div class="wallet-options text-center">
 
-        <div class="div-element">
-          <div class="div-center" id="connect-btn1">
-            <img src="./images/metamask.png" class="w-35"/>
+        <div class="div-element div-metamask">
+          <div class="div-center" id="connect_meta">
+            <img src="./images/metamask.png" class="w-24"/>
           </div>
           <div class="mb-2">
               <h4>MetaMask</h4>
@@ -1622,18 +1634,6 @@ Partner & Advisor 12%</div>
 <!-- <script src="js/connection.js"></script> -->
 
 <script type="text/javascript">
-  const openModalButton = document.getElementById('openModalButton');
-  const closeModalButton = document.getElementById('closeModalButton');
-  const customModal = document.getElementById('customModal');
-
-
-  openModalButton.addEventListener('click', () => {
-      customModal.style.display = 'block';
-  });
-
-  closeModalButton.addEventListener('click', () => {
-      customModal.style.display = 'none';
-  });
 
 
   function connectMetamask_before(){
@@ -1729,13 +1729,13 @@ $(document).ready(function() {
   } from "https://unpkg.com/@web3modal/ethereum@2.6.2"; 
   
   import { Web3Modal } from "https://unpkg.com/@web3modal/html@2.6.2"; 
-  
+
   // 0. Import wagmi dependencies 
-  const { arbitrum, avalanche, mainnet, polygon } = WagmiCoreChains; 
-  const { Address, configureChains, createConfig, getContract , getAccount , disconnect,fetchBalance , readContract, erc721ABI  } = WagmiCore; 
+  const { arbitrum, avalanche, mainnet, polygon, bsc } = WagmiCoreChains; 
+  const { Address, configureChains, createConfig, getContract , getAccount , disconnect,fetchBalance , readContract, erc721ABI ,switchNetwork  } = WagmiCore; 
   
   // 1. Define chains 
-  const chains = [mainnet, polygon, avalanche, arbitrum]; 
+  const chains = [mainnet, polygon, avalanche, arbitrum, bsc]; 
   const projectId = "8625130ae41299b31abdf897f08b7edc"; 
   
   // 2. Configure wagmi client 
@@ -1758,7 +1758,7 @@ $(document).ready(function() {
   
   // 3. Create ethereum and modal clients 
   const ethereumClient = new EthereumClient(wagmiConfig, chains); 
-  
+  console.log(ethereumClient);
   //  console.log("ethereumClient:", ethereumClient); 
   export const web3Modal = new Web3Modal( 
       { 
@@ -1775,15 +1775,18 @@ $(document).ready(function() {
   const connectedAccount = account.address; 
   
   // Update the "wallet1" element with the connected account address
-  const walletElement = document.getElementById("wallet1");
-  walletElement.textContent = connectedAccount;
-  
+  // const walletElement = document.getElementById("wallet1");
+  // walletElement.textContent = connectedAccount;
+  var connectedChainID = null;
   
   const balance = await fetchBalance({ 
       address: connectedAccount , 
   
   }); 
-  
+
+
+
+
   const contractAddress = '0x98aea1C832e0f45FBBB70046BddEc7e5453Dd61d'; // Replace this with the actual contract address 
   const contractABI = [{"inputs":[{"internalType":"address","name":"_royaltyReceiver","type":"address"},{"internalType":"uint96","name":"_royaltyFraction","type":"uint96"}],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"AlreadyReservedTokens","type":"error"},{"inputs":[],"name":"ApprovalCallerNotOwnerNorApproved","type":"error"},{"inputs":[],"name":"ApprovalQueryForNonexistentToken","type":"error"},{"inputs":[],"name":"BalanceQueryForZeroAddress","type":"error"},{"inputs":[],"name":"FunctionLocked","type":"error"},{"inputs":[],"name":"MintERC2309QuantityExceedsLimit","type":"error"},{"inputs":[],"name":"MintToZeroAddress","type":"error"},{"inputs":[],"name":"MintZeroQuantity","type":"error"},{"inputs":[],"name":"OwnerQueryForNonexistentToken","type":"error"},{"inputs":[],"name":"OwnershipNotInitializedForExtraData","type":"error"},{"inputs":[],"name":"ProvenanceHashAlreadySet","type":"error"},{"inputs":[],"name":"TransferCallerNotOwnerNorApproved","type":"error"},{"inputs":[],"name":"TransferFromIncorrectOwner","type":"error"},{"inputs":[],"name":"TransferToNonERC721ReceiverImplementer","type":"error"},{"inputs":[],"name":"TransferToZeroAddress","type":"error"},{"inputs":[],"name":"URIQueryForNonexistentToken","type":"error"},{"inputs":[],"name":"WithdrawFailed","type":"error"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"approved","type":"address"},{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"operator","type":"address"},{"indexed":false,"internalType":"bool","name":"approved","type":"bool"}],"name":"ApprovalForAll","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"uint256","name":"fromTokenId","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"toTokenId","type":"uint256"},{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"}],"name":"ConsecutiveTransfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[],"name":"MAX_SUPPLY","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"RESERVED","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"operator","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"approve","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"baseExtension","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"bytes4","name":"","type":"bytes4"}],"name":"functionLocked","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"getApproved","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"operator","type":"address"}],"name":"isApprovedForAll","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"bytes4","name":"id","type":"bytes4"}],"name":"lockFunction","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"numberMinted","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"operatorFilteringEnabled","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"ownerOf","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"provenanceHash","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"to","type":"address"}],"name":"reserve","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"},{"internalType":"uint256","name":"_salePrice","type":"uint256"}],"name":"royaltyInfo","outputs":[{"internalType":"address","name":"","type":"address"},{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"safeTransferFrom","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"},{"internalType":"bytes","name":"data","type":"bytes"}],"name":"safeTransferFrom","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address","name":"operator","type":"address"},{"internalType":"bool","name":"approved","type":"bool"}],"name":"setApprovalForAll","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"string","name":"_newBaseExtension","type":"string"}],"name":"setBaseExtension","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"string","name":"_newBaseURI","type":"string"}],"name":"setBaseURI","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bool","name":"value","type":"bool"}],"name":"setOperatorFilteringEnabled","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"string","name":"_provenanceHash","type":"string"}],"name":"setProvenanceHash","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"receiver","type":"address"},{"internalType":"uint96","name":"royaltyFraction","type":"uint96"}],"name":"setRoyalties","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes4","name":"interfaceId","type":"bytes4"}],"name":"supportsInterface","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"tokenURI","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"transferFrom","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"withdraw","outputs":[],"stateMutability":"nonpayable","type":"function"}]; // Replace this with the actual ABI of the contract 
   const addressToCheck = '0xb9097F79F0a230Cd4945318c8C03b309981f71EF'; // Replace this with the address you want to check the balance for 
@@ -1799,10 +1802,11 @@ $(document).ready(function() {
   
       const DATA = Number(data); // or +data 
       
-  
+
   
       if (DATA>=1){ 
       var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent); 
+      console.log("connectedAccount====> check in phone"+connectedAccount);
       //<!-- If the website is being viewed on a mobile device, include the model-viewer component and show the AR button -->     
           if (isMobile) { 
           // Get the height and width of the mobile screen 
@@ -1831,6 +1835,22 @@ $(document).ready(function() {
       } 
       
   } 
+
+  
+  // const switchNetworkButton = document.getElementById("test-switch-btn2");
+  // switchNetworkButton.addEventListener("click", async () => {
+
+  //   const chainId = 56;
+  //   console.log(chainId);
+  //   await ethereumClient.switchNetwork(chainId);
+  //   connectedAccount = account.address; 
+  //   walletElement.textContent = connectedAccount;
+  // });
+
+  // $('body').on('click', '#switch-btn2', function() {
+  //  console.log(getConnectedChainId());
+  //   getConnectedChainId();
+  // });
   $('body').on('click', '#walletConnect', function() {
     $("#customModal").css('display', 'none');
     // $(".w3m-container").css("z-index","9999");
@@ -1838,12 +1858,12 @@ $(document).ready(function() {
       web3Modal.openModal()
   
   });
-  // Event handler for the "Disconnect" button
 
 
   // Function to check if the wallet is connected
   function isWalletConnected() {
   const account = localStorage.getItem("current_account");
+  console.log('current_account  ====> '+account);
   $("#connected-wallet-btn").css("display","block");
   $("#connected-wallet-btn").html(account);
   $("#connect-btn1").css("display","none");
@@ -1857,6 +1877,7 @@ $(document).ready(function() {
   const isConnected = isWalletConnected();
   console.log('isConneceted==>',isConnected)
   if(isConnected){
+  
       console.log('connected')
       // $("#disconnect-wallet-connect-btn").css("display","block");
       $("#openModalButton").css("display","none");
@@ -1867,35 +1888,517 @@ $(document).ready(function() {
       $("#btn-connect").removeClass("d-none");
   }
   }
+  
+  // Function to handle mobile click event
+function mobileClickHandler(id) {
+    $("#customModal").css('display', 'none');
+    if (id === 1) {
+        changeChainnetwork(1);
+    }
+
+    if (id === 2) {
+        changeChainnetwork(2);
+    }
+}
+
+async function disconnectDevice(){
+  await disconnect();
+  document.querySelector("#disconnect-btn1").style.display = "none";
+  document.querySelector("#connect-btn1").style.display = "block";
+  document.querySelector("#switch-btn1").style.display = "none";
+
+  document.querySelector("#disconnect-btn2").style.display = "none";
+  document.querySelector("#connect-btn2").style.display = "block";
+  document.querySelector("#switch-btn2").style.display = "none";
+
+  document.querySelector("#balance-info-label1").style.display = "none";
+  document.querySelector("#referral-info-label1").style.display = "none";
+  document.querySelector("#referral-info-label2").style.display = "none";
+  document.querySelector("#referral-info-label3").style.display = "none";
+  document.querySelector("#referral-info-label4").style.display = "none";
+  document.querySelector("#balance-info-element1").style.display = "none";
+  document.querySelector("#balance-info-label2").style.display = "none";
+  document.querySelector("#balance-info-element2").style.display = "none";
+}
+
+async function changeChainnetwork(id){
+
+  if ( id === 1) {
+    
+    const network = await switchNetwork({
+      chainId: 1,
+    })
+    // setTimeout(function() { 
+     await changeValuesForETH();
+    // }, 3000);
+    
+  }
+
+  if ( id === 2) {
+   
+    const network = await switchNetwork({
+      chainId: 56,
+    })
+    // setTimeout(function() { 
+     await changeValuesForBNB();
+    // }, 3000);
+    
+
+  }
+  
+}
+
+  $(document).ready(function() {
+    $(".tab-button ").click(function() {
+        var buttonText = $(this).text();
+        if(buttonText == 'ETH'){
+          mobileClickHandler(1);
+        }
+        if (buttonText == 'BNB') {
+          mobileClickHandler(2);
+        }
+      
+    });
+  });
+
+  function showSwitchBTNforBNB(){
+    $("#connect-btn1").css('display', 'none');
+    $("#disconnect-btn1").css('display', 'none');
+    $("#switch-btn1").css('display', 'block');
+
+    $("#connect-btn2").css('display', 'none');
+    $("#disconnect-btn2").css('display', 'none');
+    $("#switch-btn2").css('display', 'block');
+
+    $("#balance-info-label1").css('display', 'none');
+    $("#balance-info-element1").css('display', 'none');
+    $("#balance-info-label2").css('display', 'none');
+    $("#balance-info-element2").css('display', 'none');
+
+    $("#referral-info-label2").css('display', 'none');
+    $("#referral-info-label1").css('display', 'none');
+    $("#referral-info-label3").css('display', 'none');
+    $("#referral-info-label4").css('display', 'none');
+  }
+
+//update UI
+function updateUIForm(id, address){
+ console.log("now chainid is ===>"+id);
+  if (id == null) {
+    $("#disconnect-btn1").css('display', 'none');
+    $("#connect-btn1").css('display', 'block');
+    $("#switch-btn1").css('display', 'none');
+
+    $("#disconnect-btn2").css('display', 'none');
+    $("#connect-btn2").css('display', 'block');
+    $("#switch-btn2").css('display', 'block');
+
+    $("#balance-info-label1").css('display', 'none');
+    $("#referral-info-label1").css('display', 'none');
+    $("#referral-info-label2").css('display', 'none');
+    $("#referral-info-label3").css('display', 'none');
+    $("#referral-info-label4").css('display', 'none');
+    $("#balance-info-element1").css('display', 'none');
+    $("#balance-info-label2").css('display', 'none');
+    $("#balance-info-element2").css('display', 'none');
+  }
+  else {
+      console.log("connected_chainId", id);
+      var connected_chainId = $("#toggleValueBtn").val();
+      // if (id != connected_chainId) {
+      //     $("#connect-btn1").css('display', 'none');
+      //     $("#disconnect-btn1").css('display', 'none');
+      //     $("#switch-btn1").css('display', 'block');
+
+      //     $("#connect-btn2").css('display', 'none');
+      //     $("#disconnect-btn2").css('display', 'none');
+      //     $("#switch-btn2").css('display', 'block');
+
+      //     $("#balance-info-label1").css('display', 'none');
+      //     $("#balance-info-element1").css('display', 'none');
+      //     $("#balance-info-label2").css('display', 'none');
+      //     $("#balance-info-element2").css('display', 'none');
+
+      //     $("#referral-info-label2").css('display', 'none');
+      //     $("#referral-info-label1").css('display', 'none');
+      //     $("#referral-info-label3").css('display', 'none');
+      //     $("#referral-info-label4").css('display', 'none');
+      // }
+      // else {
+          if (id === 1 ) {
+            console.log("inside id 1");
+              $("#connect-btn1").css('display', 'none');
+              $("#disconnect-btn1").css('display', 'block');
+              $("#disconnect-btn1").html(address.slice(0, 5) + "..." + address.slice(34));
+              $("#switch-btn1").css('display', 'none');
+
+              $("#connect-btn2").css('display', 'none');
+              $("#disconnect-btn2").css('display', 'block');
+              $("#disconnect-btn2").html(address.slice(0, 5) + "..." + address.slice(34));
+              $("#switch-btn2").css('display', 'none');
+
+              $("#balance-info-label1").css('display', 'block');
+              $("#balance-info-element1").css('display', 'flex');
+              $("#balance-info-label2").css('display', 'block');
+              $("#balance-info-element2").css('display', 'flex');
+
+              $("#referral-info-label1").css('display', 'flex');
+              $("#referral-info-label2").css('display', 'flex');
+              $("#referral-info-label3").css('display', 'flex');
+              $("#referral-info-label4").css('display', 'flex');
+
+              $("#raisedAmountBnb").html(new Intl.NumberFormat('en-US').format(Number(window.localStorage.getItem("raisedAmount")).toFixed(2)));
+              $("#raisedAmountUsdt").html(new Intl.NumberFormat('en-US').format(Number(window.localStorage.getItem("raisedAmount")).toFixed(2)));
+
+              $("#balanceUsdt").html(balanceUsdt);
+              $("#balanceBnb").html(balanceBnb);
+
+              $("#tokenLogo1").css('background-image', "url('./images/icon/bsc.png')");
+              $("#tokenLogo2").attr('src', "./images/icon/bsc.png");
+
+              $("#symbolwalletLabel1").html("Your BNB Amount&nbsp;&nbsp;:&nbsp;&nbsp;");
+              $("#symbolwalletLabel2").html("BNB");
+
+              $("#referUrl1").val("https://surfreward.io/?ref=" + address);
+              $("#referUrl2").val("https://surfreward.io/?ref=" + address);
+          }
+          if (id === 2 ) {
+            console.log("inside id 2 changes");
+              $("#connect-btn1").css('display', 'none');
+              $("#disconnect-btn1").css('display', 'block');
+              $("#disconnect-btn1").html(address.slice(0, 5) + "..." + address.slice(34));
+              $("#switch-btn1").css('display', 'none');
+
+              $("#connect-btn2").css('display', 'none');
+              $("#disconnect-btn2").css('display', 'block');
+              $("#disconnect-btn2").html(address.slice(0, 5) + "..." + address.slice(34));
+              $("#switch-btn2").css('display', 'none');
+
+              $("#balance-info-label1").css('display', 'block');
+              $("#balance-info-element1").css('display', 'flex');
+              $("#balance-info-label2").css('display', 'block');
+              $("#balance-info-element2").css('display', 'flex');
+
+              $("#referral-info-label1").css('display', 'block');
+              $("#referral-info-label2").css('display', 'block');
+              $("#referral-info-label3").css('display', 'block');
+              $("#referral-info-label4").css('display', 'block');
+
+              $("#raisedAmountBnb").html(new Intl.NumberFormat('en-US').format(Number(window.localStorage.getItem("raisedAmount")).toFixed(2)));
+              $("#raisedAmountUsdt").html(new Intl.NumberFormat('en-US').format(Number(window.localStorage.getItem("raisedAmount")).toFixed(2)));
+
+              $("#balanceUsdt").html(balanceUsdt);
+              $("#balanceBnb").html(balanceBnb);
+
+              $("#tokenLogo1").css('background-image', "url('./images/icon/ethereum-logo.svg')");
+              $("#tokenLogo2").attr('src', "./images/icon/ethereum-logo.svg");
+
+              $("#symbolwalletLabel1").html("Your ETH Amount&nbsp;&nbsp;:&nbsp;&nbsp;");
+              $("#symbolwalletLabel2").html("ETH");
+
+              $("#referUrl1").val("https://surfreward.io/?ref=" + address);
+              $("#referUrl2").val("https://surfreward.io/?ref=" + address);
+          }
+      // }
+  }
+}
+
+async function changeValuesForETH(){
+  console.log('testing inside');
+  $("#connect-btn1").css('display', 'none');
+              $("#disconnect-btn1").css('display', 'block');
+              // $("#disconnect-btn1").html(address.slice(0, 5) + "..." + address.slice(34));
+              $("#switch-btn1").css('display', 'none');
+
+              $("#connect-btn2").css('display', 'none');
+              $("#disconnect-btn2").css('display', 'block');
+              // $("#disconnect-btn2").html(address.slice(0, 5) + "..." + address.slice(34));
+              $("#switch-btn2").css('display', 'none');
+
+              $("#balance-info-label1").css('display', 'block');
+              $("#balance-info-element1").css('display', 'flex');
+              $("#balance-info-label2").css('display', 'block');
+              $("#balance-info-element2").css('display', 'flex');
+
+              $("#referral-info-label1").css('display', 'block');
+              $("#referral-info-label2").css('display', 'block');
+              $("#referral-info-label3").css('display', 'block');
+              $("#referral-info-label4").css('display', 'block');
+
+              $("#raisedAmountBnb").html(new Intl.NumberFormat('en-US').format(Number(window.localStorage.getItem("raisedAmount")).toFixed(2)));
+              $("#raisedAmountUsdt").html(new Intl.NumberFormat('en-US').format(Number(window.localStorage.getItem("raisedAmount")).toFixed(2)));
+
+              // $("#balanceUsdt").html(balanceUsdt);
+              // $("#balanceBnb").html(balanceBnb);
+
+              $("#tokenLogo1").css('background-image', "url('./images/icon/ethereum-logo.svg')");
+              $("#tokenLogo2").attr('src', "./images/icon/ethereum-logo.svg");
+
+              $("#symbolwalletLabel1").html("Your ETH Amount&nbsp;&nbsp;:&nbsp;&nbsp;");
+              $("#symbolwalletLabel2").html("ETH");
+
+              // $("#referUrl1").val("https://surfreward.io/?ref=" + address);
+              // $("#referUrl2").val("https://surfreward.io/?ref=" + address);
+}
+// function for changing values
+async function changeValuesForBNB(){
+  console.log('testing inside');
+  $("#connect-btn1").css('display', 'none');
+              $("#disconnect-btn1").css('display', 'block');
+              // $("#disconnect-btn1").html(address.slice(0, 5) + "..." + address.slice(34));
+              $("#switch-btn1").css('display', 'none');
+
+              $("#connect-btn2").css('display', 'none');
+              $("#disconnect-btn2").css('display', 'block');
+              // $("#disconnect-btn2").html(address.slice(0, 5) + "..." + address.slice(34));
+              $("#switch-btn2").css('display', 'none');
+
+              $("#balance-info-label1").css('display', 'block');
+              $("#balance-info-element1").css('display', 'flex');
+              $("#balance-info-label2").css('display', 'block');
+              $("#balance-info-element2").css('display', 'flex');
+
+              $("#referral-info-label1").css('display', 'flex');
+              $("#referral-info-label2").css('display', 'flex');
+              $("#referral-info-label3").css('display', 'flex');
+              $("#referral-info-label4").css('display', 'flex');
+
+              $("#raisedAmountBnb").html(new Intl.NumberFormat('en-US').format(Number(window.localStorage.getItem("raisedAmount")).toFixed(2)));
+              $("#raisedAmountUsdt").html(new Intl.NumberFormat('en-US').format(Number(window.localStorage.getItem("raisedAmount")).toFixed(2)));
+
+              // $("#balanceUsdt").html(balanceUsdt);
+              // $("#balanceBnb").html(balanceBnb);
+
+              $("#tokenLogo1").css('background-image', "url('./images/icon/bsc.png')");
+              $("#tokenLogo2").attr('src', "./images/icon/bsc.png");
+
+              $("#symbolwalletLabel1").html("Your BNB Amount&nbsp;&nbsp;:&nbsp;&nbsp;");
+              $("#symbolwalletLabel2").html("BNB");
+
+              // $("#referUrl1").val("https://surfreward.io/?ref=" + address);
+              // $("#referUrl2").val("https://surfreward.io/?ref=" + address);
+}
+// Function to handle desktop click event
+function desktopClickHandler() {
+    console.log("ETH Exchange");
+    changeNetwork();
+}
+
+// Determine if the current device is mobile
+function isMobileDevice() {
+
+
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+// Attach the appropriate event listeners based on the device type
+$(document).ready(function() {
+    const switchBtn1 = document.querySelector("#switch-btn1");
+    const switchBtn2 = document.querySelector("#switch-btn2");
+
+    const disconnectBTN1 = document.querySelector("#disconnect-btn1");
+    const disconnectBTN2 = document.querySelector("#disconnect-btn2");
+
+    
+
+    // const ethereumChain = document.querySelector("#ethereum");
+    // const bcsChain = document.querySelector("#bcs");
+
+    if (isMobileDevice()) {
+        $('body').on('click', '#switch-btn1', function() {
+            mobileClickHandler(1);
+        });
+
+        $('body').on('click', '#switch-btn2', function() {
+        
+            mobileClickHandler(2);
+        });
+
+        $('body').on('click', '#disconnect-btn1', function() {
+        
+          disconnectDevice();
+        });
+
+        $('body').on('click', '#disconnect-btn2', function() {
+        
+          disconnectDevice();
+        });
+
+        $('body').on('click', '.custom-class-1', function() {
+          disconnectDevice();
+        });
+
+        $('body').on('click', '.custom-class-2', function() {
+          disconnectDevice();
+        });
+
+        $('body').on('click', '.select-chain', function() {
+          $(".tab-button").removeClass("enable");
+          button.classList.remove("enable");
+        });
+
+        
+        // $('body').on('click', '#ethereum', function() {
+        //     alert('ethereum');
+        //     changeUIforEthreum();
+        // });
+
+        // $('body').on('click', '#bcs', function() {
+        //     alert('bcs');
+        //     changeUIforBCS();
+        // });
+
+        function changeUIforEthreum(){
+
+          $("#switch-btn2").css('display', 'block');
+          // $("#connect-btn1").css('display', 'none');
+          // $("#disconnect-btn1").css('display', 'block');
+          // $("#disconnect-btn1").html(address.slice(0, 5) + "..." + address.slice(34));
+          // $("#switch-btn1").css('display', 'none');
+
+          // $("#connect-btn2").css('display', 'none');
+          // $("#disconnect-btn2").css('display', 'block');
+          // $("#disconnect-btn2").html(address.slice(0, 5) + "..." + address.slice(34));
+          // $("#switch-btn2").css('display', 'none');
+
+          // $("#balance-info-label1").css('display', 'block');
+          // $("#balance-info-element1").css('display', 'flex');
+          // $("#balance-info-label2").css('display', 'block');
+          // $("#balance-info-element2").css('display', 'flex');
+
+          // $("#referral-info-label1").css('display', 'block');
+          // $("#referral-info-label2").css('display', 'block');
+          // $("#referral-info-label3").css('display', 'block');
+          // $("#referral-info-label4").css('display', 'block');
+
+          // $("#raisedAmountBnb").html(new Intl.NumberFormat('en-US').format(Number(window.localStorage.getItem("raisedAmount")).toFixed(2)));
+          // $("#raisedAmountUsdt").html(new Intl.NumberFormat('en-US').format(Number(window.localStorage.getItem("raisedAmount")).toFixed(2)));
+
+          // $("#balanceUsdt").html(balanceUsdt);
+          // $("#balanceBnb").html(balanceBnb);
+
+          // $("#tokenLogo1").css('background-image', "url('./images/icon/ethereum-logo.svg')");
+          // $("#tokenLogo2").attr('src', "./images/icon/ethereum-logo.svg");
+
+          // $("#symbolwalletLabel1").html("Your ETH Amount&nbsp;&nbsp;:&nbsp;&nbsp;");
+          // $("#symbolwalletLabel2").html("ETH");
+
+          // $("#referUrl1").val("https://surfreward.io/?ref=" + address);
+          // $("#referUrl2").val("https://surfreward.io/?ref=" + address);
+        }
+        function changeUIforBCS(){
+          setTimeout(function() { 
+          $("#switch-btn1").css('display', 'block');
+        }, 4000);
+          // $("#connect-btn1").css('display', 'none');
+          //     $("#disconnect-btn1").css('display', 'block');
+          //     $("#disconnect-btn1").html(address.slice(0, 5) + "..." + address.slice(34));
+          //     $("#switch-btn1").css('display', 'none');
+
+          //     $("#connect-btn2").css('display', 'none');
+          //     $("#disconnect-btn2").css('display', 'block');
+          //     $("#disconnect-btn2").html(address.slice(0, 5) + "..." + address.slice(34));
+          //     $("#switch-btn2").css('display', 'none');
+
+          //     $("#balance-info-label1").css('display', 'block');
+          //     $("#balance-info-element1").css('display', 'flex');
+          //     $("#balance-info-label2").css('display', 'block');
+          //     $("#balance-info-element2").css('display', 'flex');
+
+          //     $("#referral-info-label1").css('display', 'flex');
+          //     $("#referral-info-label2").css('display', 'flex');
+          //     $("#referral-info-label3").css('display', 'flex');
+          //     $("#referral-info-label4").css('display', 'flex');
+
+          //     $("#raisedAmountBnb").html(new Intl.NumberFormat('en-US').format(Number(window.localStorage.getItem("raisedAmount")).toFixed(2)));
+          //     $("#raisedAmountUsdt").html(new Intl.NumberFormat('en-US').format(Number(window.localStorage.getItem("raisedAmount")).toFixed(2)));
+
+          //     $("#balanceUsdt").html(balanceUsdt);
+          //     $("#balanceBnb").html(balanceBnb);
+
+          //     $("#tokenLogo1").css('background-image', "url('./images/icon/bsc.png')");
+          //     $("#tokenLogo2").attr('src', "./images/icon/bsc.png");
+
+          //     $("#symbolwalletLabel1").html("Your BNB Amount&nbsp;&nbsp;:&nbsp;&nbsp;");
+          //     $("#symbolwalletLabel2").html("BNB");
+
+          //     $("#referUrl1").val("https://surfreward.io/?ref=" + address);
+          //     $("#referUrl2").val("https://surfreward.io/?ref=" + address);
+        }
+        // function changeBtnVal(id){
+        //     setTimeout(function() { 
+                
+            
+        //     $("#toggleValueBtn").val(id);
+        //     if (id != null) {
+        //       $("#connect-btn1").css('display', 'none');
+        //       $("#disconnect-btn1").css('display', 'none');
+        //       $("#switch-btn1").css('display', 'block');
+
+        //       $("#connect-btn2").css('display', 'none');
+        //       $("#disconnect-btn2").css('display', 'none');
+        //       $("#switch-btn2").css('display', 'block');
+
+        //       $("#balance-info-label1").css('display', 'none');
+        //       $("#balance-info-element1").css('display', 'none');
+        //       $("#balance-info-label2").css('display', 'none');
+        //       $("#balance-info-element2").css('display', 'none');
+
+        //       $("#referral-info-label2").css('display', 'none');
+        //       $("#referral-info-label1").css('display', 'none');
+        //       $("#referral-info-label3").css('display', 'none');
+        //       $("#referral-info-label4").css('display', 'none');
+        //     }
+
+        //   }, 4000);
+        //   }
+        } 
+});
+  
+
   const unsubscribe = web3Modal.subscribeModal(newState => {
       if(newState.open){
           return
       }
       web3Modal.closeModal()
       const account = getAccount(); 
-       console.log('account===>',account.status);
-       $("#connected-wallet-btn").css("display","block");
-      $("#connected-wallet-btn").html("Connected");
-      $("#openModalButton").css("display","none");
-      // if(!account?.address) return 
+      const address = account.address;
+      console.log(address+ " " + "changechainnetwork");
+      console.log('account===>',account.status);
+      
+      $("#connected_account_address").val(address);
       if(!account.isConnected){
-          $("#btn-connect").removeClass("d-none");
-          $("#wallet_address").val("");
-          $("#wallet").text("");
+        
+          // $("#balance-info-element1").css("display", "none");
+          // $("#openModalButton").css("display", "block");
+          // $("#disconnect-btn1").css("display", "none");
           localStorage.removeItem("current_account");
       }else{
           
-          localStorage.setItem("current_account", account.address);
-          $(".disconnect_wallet").removeClass("d-none");
-          $(".select_other").removeClass("d-none");
-          $("#btn-connect").addClass("d-none");
-          $("#pay_en_btn").removeClass("d-none");
-          $("#wallet_btn").addClass("d-none");
-          $("#wallet_address").val(account.address);
-          $("#wallet").text(account.address);
-          $("#wallet_connect_fe").addClass('d-none');
+          var connected_chainId = $("#toggleValueBtn").val();
+          console.log('here is the connected chain ID');
+          console.log(connected_chainId+ " connected_chainId in wagmi");
+          if (connected_chainId === 1 ) {
+            console.log('connected chainid 1 in index');
+            setTimeout(function() { 
+              updateUIForm(1, address);
+            }, 2000);
+           
+          }else if(connected_chainId === 2){
+            console.log('connected chainid 2 in index');
+            setTimeout(function() { 
+              updateUIForm(2, address);
+            }, 2000);
+           
+          }else{
+            setTimeout(function() { 
+              console.log('connected chainid 2 in index else condition');
+              updateUIForm(2, address);
+            }, 2000);
+            
+          } 
       }
-      
+ 
       // if account do something 
       
           
@@ -1918,13 +2421,20 @@ $(document).ready(function() {
           $(".disconnect_wallet").addClass("d-none");
       }
       
-      // Call the "unsubscribe" function to disconnect the wallet
-      
-  
+      // Call the "unsubscribe" function to disconnect the wallet 
   }
-  
+
 
 </script>
+<script>
+$("#closeModalButton").click(function(){
+    console.log('close btn clicked');
+  $("#customModal").css("display","none");
+});
+document.getElementById("connect_meta").addEventListener("click", onConnect);
 
+
+
+</script>
 </body>
 </html>
